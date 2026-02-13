@@ -14,3 +14,21 @@ BFS(Graph, start):
             if neighbor is not visited:
                 mark neighbor as visited
                 enqueue neighbor into Q
+
+DEATH FIRST SEARCH 
+
+DFS_iterative(graph, start):
+    create an empty stack S
+    create a set visited
+
+    push start onto S
+
+    while S is not empty:
+        node = pop from S
+
+        if node is not visited:
+            mark node as visited
+            process node
+
+            for each neighbor in graph[node] in reverse order:
+                push neighbor onto S

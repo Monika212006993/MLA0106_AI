@@ -119,3 +119,25 @@ A*(start, goal):
                 openSet.insert(neighbor, priority = f)
 
     return failure   // no path
+
+
+Min-Max
+
+MINIMAX(node, depth, isMaximizingPlayer):
+
+    if node is a terminal node OR depth == 0:
+        return heuristic_value(node)
+
+    if isMaximizingPlayer:
+        bestValue = -∞
+        for each child of node:
+            value = MINIMAX(child, depth - 1, false)
+            bestValue = max(bestValue, value)
+        return bestValue
+
+    else:   // Minimizing player
+        bestValue = +∞
+        for each child of node:
+            value = MINIMAX(child, depth - 1, true)
+            bestValue = min(bestValue, value)
+        return bestValue

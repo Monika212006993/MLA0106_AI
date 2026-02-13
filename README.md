@@ -88,3 +88,34 @@ GBFS(start, goal):
                 openSet.insert(neighbor, priority = h(neighbor))
 
     return failure
+
+A*
+
+A*(start, goal):
+
+    openSet = priority queue ordered by f(n) = g(n) + h(n)
+    openSet.insert(start, priority = h(start))
+
+    g = dictionary with default = ∞
+    g[start] = 0
+
+    parent = dictionary
+    parent[start] = None
+
+    while openSet is not empty:
+
+        current = openSet.pop()   // node with smallest f(n)
+
+        if current == goal:
+            return reconstruct_path(parent, goal)
+
+        for each (neighbor, cost) in graph[current]:
+            tentative_g = g[current] + cost
+
+            if tentative_g < g[neighbor]:
+                parent[neighbor] = current
+                g[neighbor] = tentative_g
+                f = tentative_g + h(neighbor)
+                openSet.insert(neighbor, priority = f)
+
+    return failure   // no path

@@ -32,3 +32,31 @@ DFS_iterative(graph, start):
 
             for each neighbor in graph[node] in reverse order:
                 push neighbor onto S
+
+UNIFORM COST SEARCH 
+
+UCS(start, goal):
+    create a priority queue PQ
+    PQ.insert(start, priority = 0)
+
+    create a dictionary cost
+    cost[start] = 0
+
+    create a dictionary parent
+    parent[start] = None
+
+    while PQ is not empty:
+        node = PQ.pop()    // node with smallest cost
+
+        if node == goal:
+            return reconstruct_path(parent, goal)
+
+        for each (neighbor, edge_cost) in graph[node]:
+            new_cost = cost[node] + edge_cost
+
+            if neighbor not in cost OR new_cost < cost[neighbor]:
+                cost[neighbor] = new_cost
+                parent[neighbor] = node
+                PQ.insert(neighbor, priority = new_cost)
+
+    return failure   // no path found

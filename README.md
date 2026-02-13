@@ -60,3 +60,31 @@ UCS(start, goal):
                 PQ.insert(neighbor, priority = new_cost)
 
     return failure   // no path found
+
+GREEDY BREATH FIRST SEARCH
+
+GBFS(start, goal):
+
+    openSet = priority queue ordered by h(n)
+    openSet.insert(start, priority = h(start))
+
+    parent = dictionary
+    parent[start] = None
+
+    visited = empty set
+
+    while openSet is not empty:
+
+        current = openSet.pop()   // node with smallest h(n)
+
+        if current == goal:
+            return reconstruct_path(parent, goal)
+
+        visited.add(current)
+
+        for each neighbor in graph[current]:
+            if neighbor not in visited:
+                parent[neighbor] = current
+                openSet.insert(neighbor, priority = h(neighbor))
+
+    return failure

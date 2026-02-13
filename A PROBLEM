@@ -1,0 +1,101 @@
+import heapq
+
+# ---------------------------
+# A* SEARCH IMPLEMENTATION
+# ---------------------------
+
+def astar(graph, h, start, goal):
+    open_list = []
+    heapq.heappush(open_list, (h[start], start))
+
+    g = {start: 0}
+    parent = {}
+
+    while open_list:
+        _, node = heapq.heappop(open_list)
+
+        if node == goal:
+            path = []
+            while node in parent:
+                path.append(node)
+                node = parent[node]
+            path.append(start)
+            return path[::-1], g[goal]
+
+        for n, cost in graph[node].items():
+            new_g = g[node] + cost
+            if n not in g or new_g < g[n]:
+                g[n] = new_g
+                parent[n] = node
+                heapq.heappush(open_list, (new_g + h[n], n))
+
+    return None, float("inf")
+
+
+# --------------------------------------------------------------------
+# EXAMPLE 1 (Corrected)
+# --------------------------------------------------------------------
+graph1 = {
+    "8": {"A": 3, "D": 4},
+    "A": {"B": 4, "D": 5},
+    "B": {"C": 4, "E": 5},
+    "C": {"B": 4},
+    "D": {"E": 2},
+    "E": {"F": 4},
+    "F": {"G": 3.5},
+    "G": {}
+}
+
+h1 = {
+    "8": 11.5, "A": 10.1, "B": 5.8, "C": 3.4,
+    "D": 9.2, "E": 7.1, "F": 3.5, "G": 0
+}
+
+path1, cost1 = astar(graph1, h1, "8", "G")
+print("Example 1 → Path:", path1, "Cost:", cost1)
+
+
+# --------------------------------------------------------------------
+# EXAMPLE 2 (Corrected)
+# --------------------------------------------------------------------
+graph2 = {
+    "A": {"B": 1, "C": 4},
+    "B": {"C": 2, "D": 3},
+    "C": {"E": 5},
+    "D": {"F": 2, "G": 4},
+    "E": {"G": 3},
+    "F": {"G": 1},
+    "G": {}
+}
+
+h2 = {
+    "A": 5, "B": 6, "C": 4,
+    "D": 3, "E": 3, "F": 1,
+    "G": 0
+}
+
+path2, cost2 = astar(graph2, h2, "A", "G")
+print("Example 2 → Path:", path2, "Cost:", cost2)
+
+
+# --------------------------------------------------------------------
+# EXAMPLE 3 (Corrected)
+# --------------------------------------------------------------------
+graph3 = {
+    "A": {"B": 5, "S": 3, "C": 10},
+    "B": {"D": 1, "E": 1, "C": 2},
+    "C": {"G": 4},
+    "D": {"E": 4},
+    "E": {"G": 3},
+    "S": {"D": 2},
+    "G": {}
+}
+
+h3 = {
+    "A": 9, "B": 4, "C": 2,
+    "D": 5, "E": 3, "G": 0,
+    "S": 7
+}
+
+path3, cost3 = astar(graph3, h3, "A", "G")
+print("Example 3 → Path:", path3, "Cost:", cost3)

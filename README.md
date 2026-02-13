@@ -168,3 +168,33 @@ ALPHA_BETA(node, depth, alpha, beta, isMax):
             if beta <= alpha:
                 break       // alpha cut-off
         return value
+
+WATER JUG PROBLEM 
+
+WATER_JUG(A, B, G):
+
+    start = (0, 0)
+    create queue Q
+    enqueue start into Q
+
+    visited = empty set
+    visited.add(start)
+
+    parent = dictionary
+    parent[start] = None
+
+    while Q is not empty:
+        (x, y) = dequeue Q
+
+        // Goal check
+        if x == G or y == G:
+            return reconstruct_path(parent, (x, y))
+
+        // Generate all possible next states
+        for each (nx, ny) in NEXT_STATES(x, y, A, B):
+            if (nx, ny) not in visited:
+                visited.add((nx, ny))
+                parent[(nx, ny)] = (x, y)
+                enqueue (nx, ny) into Q
+
+    return failure

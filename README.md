@@ -15,7 +15,7 @@ BFS(Graph, start):
                 mark neighbor as visited
                 enqueue neighbor into Q
 
-DEATH FIRST SEARCH 
+DEPATH FIRST SEARCH 
 
 DFS_iterative(graph, start):
     create an empty stack S

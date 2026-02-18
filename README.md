@@ -198,3 +198,166 @@ WATER_JUG(A, B, G):
                 enqueue (nx, ny) into Q
 
     return failure
+
+MAP COLOR
+
+START
+Define available colors (red, green, blue)
+Assign colors to regions A, B, C, D
+Check:
+    A ≠ B
+    A ≠ C
+    B ≠ C
+    C ≠ D
+    B ≠ D
+If all conditions satisfied
+    Print color combination
+STOP
+
+FAMILY TREE PROBLEM
+
+START
+Define gender facts (male / female)
+Define parent relationships
+
+Mother(X,Y):
+    If X is female AND parent of Y
+
+Father(X,Y):
+    If X is male AND parent of Y
+
+Grandfather(X,Y):
+    If X is male AND parent of Z
+    AND Z is parent of Y
+
+Grandmother(X,Y):
+    If X is female AND parent of Z
+    AND Z is parent of Y
+
+Sister(X,Y):
+    If X is female AND share same parent
+    AND X ≠ Y
+
+Brother(X,Y):
+    If X is male AND share same parent
+    AND X ≠ Y
+STOP
+
+
+STUDENT PERFORMANCE
+
+START
+Define student attributes
+
+If student is hardworking AND regular
+    Performance = Excellent
+
+If student is hardworking AND irregular
+    Performance = Good
+
+If student has average trait
+    Performance = Average
+
+Display performance
+STOP
+
+
+BIRD FLY PROBLEM
+
+START
+Define birds (eagle, sparrow, penguin)
+
+If bird is penguin
+    Fail (cannot fly)
+
+Else if bird exists
+    Bird can fly
+
+Display result
+STOP
+
+
+FORWARD CHAINING
+
+START
+If person is American
+AND sells weapon
+AND weapon sold to hostile country
+Then
+    Person is criminal
+
+Check for Robert
+Display result
+STOP
+
+
+PLANETS DATABASE
+
+START
+Store orbit relationships
+
+If X orbits sun
+    X is planet
+
+If Moon orbits Planet
+    Moon_of(Moon, Planet)
+
+Display results
+STOP
+
+FRUIT AND COLOR PREDICTION
+
+START
+Define fruit-color facts
+
+If fruit has defined color
+    Return that color
+
+Else
+    Return unknown
+
+Allow backtracking for multiple colors
+STOP
+
+
+FAMILY RELATION
+
+START
+Define male and female members
+Define parent relationships
+
+Define:
+    Father
+    Mother
+    Brother
+    Sister
+    Grandfather
+    Grandmother
+
+Based on parent + gender conditions
+Return relationships
+STOP
+
+
+COUNT NUMBER OF VOWLES
+
+START
+Store sentence
+
+Convert sentence into characters
+
+For each character in sentence
+    If character is vowel
+        Increase counter by 1
+
+Display total vowel count
+STOP
+
+
+
+
+
+
+
+
+

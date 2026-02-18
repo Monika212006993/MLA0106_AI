@@ -199,7 +199,8 @@ WATER_JUG(A, B, G):
 
     return failure
 
-MAP COLOR
+
+MAP COLORING 
 
 START
 Define available colors (red, green, blue)
@@ -213,4 +214,7 @@ Check:
 If all conditions satisfied
     Print color combination
 STOP
+
+
+
 

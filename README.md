@@ -299,3 +299,15 @@ BEGIN
            hostile(Country)
            THEN X is criminal
 END
+
+PLANETS DATABASE 
+
+BEGIN
+    DEFINE orbits(Object, Parent)
+
+    DEFINE planet(X):
+        IF orbits(X, sun)
+
+    DEFINE moon_of(Moon, Planet):
+        IF orbits(Moon, Planet)
+END

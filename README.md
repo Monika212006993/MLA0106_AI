@@ -200,20 +200,6 @@ WATER_JUG(A, B, G):
     return failure
 
 
-MAP COLORING 
-
-START
-Define available colors (red, green, blue)
-Assign colors to regions A, B, C, D
-Check:
-    A ≠ B
-    A ≠ C
-    B ≠ C
-    C ≠ D
-    B ≠ D
-If all conditions satisfied
-    Print color combination
-STOP
 
 
 

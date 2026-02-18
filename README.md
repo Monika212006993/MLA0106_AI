@@ -265,3 +265,18 @@ BEGIN
         IF attribute(Student, average)
            THEN TRUE
 END
+
+BIRD CAN FLY OR NOT 
+
+BEGIN
+    DEFINE bird(X)
+
+    RULE: fly(penguin) = FALSE  (special case)
+
+    RULE: fly(X):
+        IF bird(X) THEN TRUE
+
+    WHEN querying fly(X):
+        IF X = penguin → return FALSE
+        ELSE IF X is bird → return TRUE
+END

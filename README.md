@@ -221,5 +221,28 @@ BEGIN
 END
 
 
+FATS GENDER PROBLEM
 
+BEGIN
+    DEFINE gender facts: male(X), female(X)
+    DEFINE parent facts: parent(Parent, Child)
+
+    DEFINE mother(X, Y):
+        IF female(X) AND parent(X, Y) THEN TRUE
+
+    DEFINE father(X, Y):
+        IF male(X) AND parent(X, Y) THEN TRUE
+
+    DEFINE grandfather(X, Y):
+        IF male(X) AND parent(X, Z) AND parent(Z, Y) THEN TRUE
+
+    DEFINE grandmother(X, Y):
+        IF female(X) AND parent(X, Z) AND parent(Z, Y) THEN TRUE
+
+    DEFINE sister(X, Y):
+        IF female(X) AND parent(P, X) AND parent(P, Y) AND X ≠ Y THEN TRUE
+
+    DEFINE brother(X, Y):
+        IF male(X) AND parent(P, X) AND parent(P, Y) AND X ≠ Y THEN TRUE
+END
 

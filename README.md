@@ -350,3 +350,27 @@ BEGIN
     RULE grandmother(X, Y):
         IF female(X) AND parent(X, Z) AND parent(Z, Y)
 END
+
+
+COUNT NUMBERS OF VOWELS 
+
+BEGIN
+    READ sentence S
+    CONVERT S into list of characters L
+
+    DEFINE vowel(C):
+        IF C in {a,e,i,o,u,A,E,I,O,U}
+
+    DEFINE count_vowels(L):
+        IF L empty → return 0
+        ELSE
+            TAKE head H and tail T
+            IF vowel(H)
+                RETURN 1 + count_vowels(T)
+            ELSE
+                RETURN count_vowels(T)
+
+    MAIN:
+        Count = count_vowels(L)
+        PRINT Count
+END

@@ -280,3 +280,22 @@ BEGIN
         IF X = penguin → return FALSE
         ELSE IF X is bird → return TRUE
 END
+
+FORWARD CHAINING 
+
+
+BEGIN
+    DEFINE facts:
+        american(robert)
+        weapon(missile)
+        hostile(countryA)
+        owns(countryA, missile)
+        sells(robert, missile, countryA)
+
+    RULE criminal(X):
+        IF american(X) AND
+           sells(X, Item, Country) AND
+           weapon(Item) AND
+           hostile(Country)
+           THEN X is criminal
+END

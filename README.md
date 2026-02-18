@@ -200,6 +200,25 @@ WATER_JUG(A, B, G):
     return failure
 
 
+MAP COLORING 
+
+BEGIN
+    DEFINE colors = {red, green, blue}
+
+    FUNCTION mapcolor(A, B, C, D):
+        SELECT A FROM colors
+        SELECT B FROM colors
+        SELECT C FROM colors
+        SELECT D FROM colors
+        
+        IF A ≠ B AND
+           A ≠ C AND
+           B ≠ C AND
+           C ≠ D AND
+           B ≠ D THEN
+                RETURN (A, B, C, D)
+        ENDIF
+END
 
 
 

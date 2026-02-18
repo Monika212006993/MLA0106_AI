@@ -246,3 +246,22 @@ BEGIN
         IF male(X) AND parent(P, X) AND parent(P, Y) AND X ≠ Y THEN TRUE
 END
 
+STUDENT ACADEMY PERFORMANCE 
+
+BEGIN
+    STORE attribute(Student, Trait)
+
+    DEFINE performance(Student, excellent):
+        IF attribute(Student, hardworking) AND
+           attribute(Student, regular)
+           THEN TRUE
+
+    DEFINE performance(Student, good):
+        IF attribute(Student, hardworking) AND
+           attribute(Student, irregular)
+           THEN TRUE
+
+    DEFINE performance(Student, average):
+        IF attribute(Student, average)
+           THEN TRUE
+END

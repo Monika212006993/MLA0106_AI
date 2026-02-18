@@ -311,3 +311,16 @@ BEGIN
     DEFINE moon_of(Moon, Planet):
         IF orbits(Moon, Planet)
 END
+
+
+FRUITS AND THEIR COLOURS 
+
+BEGIN
+    DEFINE colour(Fruit, Color)
+
+    RULE: colour(X, unknown)  (default rule)
+
+    WHEN querying colour(Fruit, C):
+        RETURN all matching colors using backtracking
+        If no match → return unknown
+END

@@ -324,3 +324,29 @@ BEGIN
         RETURN all matching colors using backtracking
         If no match → return unknown
 END
+
+
+FAMILY RELATION 
+
+BEGIN
+    DEFINE gender facts: male(X), female(X)
+    DEFINE parent facts: parent(Parent, Child)
+
+    RULE father(X, Y):
+        IF male(X) AND parent(X, Y)
+
+    RULE mother(X, Y):
+        IF female(X) AND parent(X, Y)
+
+    RULE brother(X, Y):
+        IF male(X) AND parent(P, X) AND parent(P, Y) AND X ≠ Y
+
+    RULE sister(X, Y):
+        IF female(X) AND parent(P, X) AND parent(P, Y) AND X ≠ Y
+
+    RULE grandfather(X, Y):
+        IF male(X) AND parent(X, Z) AND parent(Z, Y)
+
+    RULE grandmother(X, Y):
+        IF female(X) AND parent(X, Z) AND parent(Z, Y)
+END

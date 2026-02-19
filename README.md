@@ -396,3 +396,21 @@ FUNCTION BFS(start, goal):
                 ENQUEUE next_state
     END WHILE
 END FUNCTION
+
+
+8 QUEENS
+
+FUNCTION solve(board, row):
+    IF row = 8:
+        PRINT board
+        RETURN true
+
+    FOR col from 0 to 7:
+        IF safe(board, row, col):
+            board[row] ← col
+            IF solve(board, row+1):
+                RETURN true
+    END FOR
+
+    RETURN false
+END FUNCTION

@@ -490,4 +490,28 @@ FOR each permutation of cities:
         min_cost ← cost
         best_path ← permutation
 
+
+TIC TAC TOE
+
+board ← 9 empty cells
+player ← "X"
+
+FOR turn = 1 to 9:
+    display board
+    pos ← user input
+
+    IF board[pos] not empty:
+        PRINT invalid
+        CONTINUE
+
+    board[pos] ← player
+
+    IF check_win(player):
+        display board
+        PRINT player wins
+        STOP
+
+    switch player between X and O
+
+PRINT draw
 PRINT best_path, min_cost

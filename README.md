@@ -374,3 +374,25 @@ BEGIN
         Count = count_vowels(L)
         PRINT Count
 END
+
+
+8 PUZZLE 
+
+FUNCTION BFS(start, goal):
+    queue ← empty queue
+    visited ← empty map
+    ENQUEUE start into queue
+    visited[start] ← None
+
+    WHILE queue not empty:
+        state ← DEQUEUE queue
+        
+        IF state = goal:
+            RETURN visited
+
+        FOR each possible next_state from state:
+            IF next_state not in visited:
+                visited[next_state] ← state
+                ENQUEUE next_state
+    END WHILE
+END FUNCTION

@@ -473,3 +473,21 @@ FUNCTION vacuum_world(state):
         IF B is dirty: CLEAN B
         ELSE: MOVE to A
 END FUNCTION
+
+
+TRAVELLING SALES MAN PROBLEM 
+
+min_cost ← infinity
+best_path ← null
+
+FOR each permutation of cities:
+    cost ← 0
+    FOR i = 0 to n-2:
+        cost += distance(city[i], city[i+1])
+    cost += distance(last_city, first_city)
+
+    IF cost < min_cost:
+        min_cost ← cost
+        best_path ← permutation
+
+PRINT best_path, min_cost

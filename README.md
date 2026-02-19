@@ -414,3 +414,19 @@ FUNCTION solve(board, row):
 
     RETURN false
 END FUNCTION
+
+CRYPTARITHMETIC
+
+letters ← unique letters in problem
+
+FOR each permutation of digits for letters:
+    IF leading letters are zero: CONTINUE
+
+    compute SEND
+    compute MORE
+    compute MONEY
+
+    IF SEND + MORE = MONEY:
+        PRINT solution
+        STOP
+END FOR

@@ -460,3 +460,16 @@ FUNCTION BFS(start, goal):
                 visited[next_state] = state
                 enqueue next_state
     RETURN visited
+
+
+VACUUM CLEANER PROBLEM 
+
+FUNCTION vacuum_world(state):
+    IF location = A:
+        IF A is dirty: CLEAN A
+        ELSE: MOVE to B
+
+    IF location = B:
+        IF B is dirty: CLEAN B
+        ELSE: MOVE to A
+END FUNCTION

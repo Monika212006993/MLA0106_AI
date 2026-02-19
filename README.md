@@ -515,3 +515,24 @@ FOR turn = 1 to 9:
 
 PRINT draw
 PRINT best_path, min_cost
+
+FARWARD NEURAL NETWORK 
+
+FUNCTION sigmoid(x):
+    RETURN 1 / (1 + exp(-x))
+
+FUNCTION feed_forward(inputs, weights_hidden, weights_output):
+
+    hidden ← empty list
+    FOR each hidden_neuron:
+        total ← sum(input * weight)
+        hidden_output ← sigmoid(total)
+        add to hidden
+
+    output ← empty list
+    FOR each output_neuron:
+        total ← sum(hidden * weight)
+        final_output ← sigmoid(total)
+        add to output
+
+    RETURN hidden, output

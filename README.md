@@ -430,3 +430,33 @@ FOR each permutation of digits for letters:
         PRINT solution
         STOP
 END FOR
+
+
+MISSIONARIES AND CANNIBALS
+
+FUNCTION is_valid(state):
+    CHECK no negative values
+    CHECK cannibals never outnumber missionaries
+    RETURN true/false
+
+FUNCTION successors(state):
+    LIST possible moves
+    FOR each move:
+        generate new_state
+        IF is_valid(new_state):
+            add to list
+    RETURN list
+
+FUNCTION BFS(start, goal):
+    queue ← [start]
+    visited ← {start: None}
+
+    WHILE queue not empty:
+        state ← dequeue
+        IF state = goal: BREAK
+
+        FOR next_state in successors(state):
+            IF next_state not visited:
+                visited[next_state] = state
+                enqueue next_state
+    RETURN visited
